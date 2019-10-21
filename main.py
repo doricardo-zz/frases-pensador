@@ -10,14 +10,9 @@ import time
 def index():
 
    
-    file = 'frases_curtas'
+    file = 'frases_curtas'#'frases_de_motivacao'
     ini = 1#176
-    fim = 176#176
-
-    file = 'frases_de_motivacao'
-    ini = 1#176
-    fim = 1800#176
-    
+    fim = 176#1800
 
     with open(file + '.csv', 'w', newline='') as csvfile:
         spamwriter = csv.writer(csvfile)
@@ -26,7 +21,6 @@ def index():
         spamwriter.writerow(linha)
 
         for p in range(ini, fim):
-            #url = ('https://www.pensador.com/frases_de_motivacao/' + str(p))
             url = ('https://www.pensador.com/' + file +'/' + str(p))
             r = requests.get(url)
             soup = BeautifulSoup(r.content, 'html.parser')
